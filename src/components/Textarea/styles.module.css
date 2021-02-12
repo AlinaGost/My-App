@@ -1,0 +1,18 @@
+.textarea {
+  width: 100%;
+  max-width: 880px;
+  height: 70px;
+
+  resize: both;
+
+  font-size: 25px;
+  color: black;
+
+  padding: 15px 20px;
+
+  background-color: #e2f7f1;
+}
+
+.textarea:focus {
+  outline: none;
+}

@@ -1,0 +1,23 @@
+.profile {
+  grid-area: c;
+  background-color: antiquewhite;
+
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.content {
+  padding: 15px;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+}
+
+/*.item {*/
+/*  color: antiquewhite;*/
+/*  font-size: 25px;*/
+/*  font-weight: 500;*/
+/*}*/

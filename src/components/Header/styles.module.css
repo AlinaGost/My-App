@@ -1,0 +1,16 @@
+.header {
+  position: relative;
+
+  grid-area: h;
+  background-color: palegreen;
+}
+
+.header a {
+  position: absolute;
+  top: -20px;
+}
+
+.header img {
+  width: 90px;
+  height: auto;
+}

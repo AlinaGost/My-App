@@ -1,0 +1,21 @@
+.button {
+  padding: 8px 30px;
+
+  background-color: forestgreen;
+  border: 0;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+
+  transition: background-color 0.2s linear, color 0.2s linear;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  background-color: lightgreen;
+  color: black;
+}
