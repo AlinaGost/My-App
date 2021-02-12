@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 import Textarea from "../../Textarea/Textarea";
-import Button from "../../Button/button";
+import Button from "../../Button/Button";
 import Post from "./Post/Post";
 
 const MyPosts = () => {

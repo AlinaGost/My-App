@@ -1,11 +1,3 @@
-.profile {
-  grid-area: c;
-  background-color: antiquewhite;
-
-  margin-top: 10px;
-  margin-left: 15px;
-}
-
 .content {
   padding: 15px;
 }

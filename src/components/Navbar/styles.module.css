@@ -16,9 +16,10 @@
   font-weight: 500;
   text-decoration: none;
 
-  padding: 5px 10px;
+  padding: 3px 15px;
 }
 
-.item a:hover {
-  border: 1px solid antiquewhite;
+.item a.active {
+  color: blue;
 }
+
