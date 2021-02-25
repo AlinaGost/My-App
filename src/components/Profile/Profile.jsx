@@ -12,7 +12,7 @@ const Profile = () => {
           </div>
 
           <div className={styles.content}>
-            <UserInfo />
+            <UserInfo name={'Dmitriy K'} date={'25.02.1995'} city={'London'} education={'GFR NH 5456'} website={'vk'}/>
             <MyPosts />
           </div>
         </div>
