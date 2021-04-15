@@ -4,16 +4,12 @@ import Textarea from "../../Textarea/Textarea";
 import Button from "../../Button/Button";
 import Post from "./Post/Post";
 
-let posts = [
-  {id: 1, message: 'Важная новость!!!Наиважейшая новость!!!'},
-  {id: 2, message: 'Новость!!!Пост!!!Репост!'},
-  {id: 3, message: 'Новость!!!Пост!!!Репост! Важная новость!!!Наиважейшая новость!!!'},
-  {id: 4, message: 'Новость!!!Пост!!!Репост! Новость!!!Пост!!!Репост!'}
-]
 
-let postsElements = posts.map(post =>  <Post id={post.id} message={post.message} />)
+const MyPosts = (props) => {
 
-const MyPosts = () => {
+  let img = props.users.map(img => <img className={styles.img} src={img.src} alt=""/>)
+  let postsElements = props.posts.map(post => <Post id={post.id} message={post.message} /> );
+
   return (
     <div className={styles.posts}>
       <div className={styles.title}>My posts</div>
@@ -21,7 +17,10 @@ const MyPosts = () => {
       <div className={styles.button}>
         <Button />
       </div>
-      {postsElements}
+      <div>
+        {postsElements} {img}
+      </div>
+
     </div>
   )
 }

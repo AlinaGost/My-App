@@ -3,8 +3,7 @@ import styles from './styles.module.css';
 import UserInfo from "../UserInfo/UserInfo";
 import MyPosts from "./MyPosts/MyPosts.lsx";
 
-
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div>
           <div>
@@ -13,7 +12,7 @@ const Profile = () => {
 
           <div className={styles.content}>
             <UserInfo name={'Dmitriy K'} date={'25.02.1995'} city={'London'} education={'GFR NH 5456'} website={'vk'}/>
-            <MyPosts />
+            <MyPosts posts={props.state.posts} users={props.state.users}/>
           </div>
         </div>
       )
