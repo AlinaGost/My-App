@@ -13,3 +13,18 @@
 .messages {
   padding: 20px 25px;
 }
+
+.messageElement {
+  margin-bottom: 200px;
+}
+
+.messageInput {
+  text-align: right;
+}
+
+.textarea {
+  width: 100%;
+  max-width: 650px;
+  margin-bottom: 10px;
+}
+

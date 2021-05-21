@@ -2,6 +2,12 @@ import  avatar_1 from './../img/avatar_1.jpg';
 import  avatar_2 from './../img/avatar_2.jpg';
 import  avatar_3 from './../img/avatar_3.jpg';
 import  avatar_4 from './../img/avatar_4.jpg';
+import  avatar_5 from './../img/avatar_5.jpg';
+import  avatar_6 from './../img/avatar_6.jpg';
+
+let rerenderEntireFree = () => {
+}
+
 let state = {
   profilesPage: {
     posts : [
@@ -10,22 +16,25 @@ let state = {
       {id: 3, message: 'Новость!!!Пост!!!Репост! Важная новость!!!Наиважейшая новость!!!', userId: 3},
       {id: 4, message: 'Новость!!!Пост!!!Репост! Новость!!!Пост!!!Репост!', userId: 4}
     ],
+    newTextPost : ' ',
     users : [
       {id: 1, name: 'Dmitriy', src: avatar_1, friends: [2, 3]},
       {id: 2, name: 'Roman', src: avatar_2, friends: [1, 3, 4]},
       {id: 3, name: 'Elena', src: avatar_3, friends: [1, 4]},
-      {id: 4, name: 'Natalia', src: avatar_4, friends: [1, 2, 3] }
+      {id: 4, name: 'Natalia', src: avatar_4, friends: [1, 2, 3]},
+      {id: 5, name: 'Sveta', src: avatar_5, friends: [1, 2, 3, 4]},
+      {id: 6, name: 'Anastasia', src: avatar_6, friends: [1, 2, 3, 5]}
     ]
   },
 
   dialogsPage: {
     dialogs : [
-      {id: 1, name: 'Natalia'},
-      {id: 2, name: 'Roman'},
-      {id: 3, name: 'Sveta'},
-      {id: 4, name: 'Dmitriy'},
-      {id: 5, name: 'Anastasia'},
-      {id: 6, name: 'Elena'}
+      {id: 1, name: 'Natalia', userId: 4},
+      {id: 2, name: 'Roman', userId: 2},
+      {id: 3, name: 'Sveta', userId: 5},
+      {id: 4, name: 'Dmitriy', userId: 1},
+      {id: 5, name: 'Anastasia', userId: 6},
+      {id: 6, name: 'Elena', userId: 3}
     ],
 
     messages : [
@@ -36,5 +45,27 @@ let state = {
     ],
   }
 }
+
+window.state = state;
+
+export const addPost = () => {
+  let newPost = {
+    id: 5,
+    message: state.profilesPage.newTextPost,
+    userId: 5
+  };
+  state.profilesPage.posts.push(newPost);
+  rerenderEntireFree(state);
+}
+
+export const updateNewPostText = (newText) => {
+  state.profilesPage.newTextPost = newText;
+  rerenderEntireFree(state);
+}
+
+export const subscribe = (observer) => {
+  rerenderEntireFree = observer;
+}
+
 
 export default state;
