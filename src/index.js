@@ -1,13 +1,13 @@
 import React from 'react';
 import './index.css';
-import store from "./redux/state";
+import store from "./redux/redux-store";
 import ReactDOM from "react-dom";
 import App from "./App";
 
 let rerenderEntireFree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} addPost={store.addPost.bind(store)} updateNewPostText={store.updateNewPostText.bind(store)} />
+      <App state={state} dispatch={store.dispatch.bind(store)} store={store} />
     </React.StrictMode>,
     document.getElementById('root')
   );
@@ -15,7 +15,10 @@ let rerenderEntireFree = (state) => {
 
 rerenderEntireFree(store.getState());
 
-store.subscribe(rerenderEntireFree);
+store.subscribe(() => {
+  let state = store.getState();
+  rerenderEntireFree(state);
+});
 
 
 

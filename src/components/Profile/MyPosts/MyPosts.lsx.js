@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import Textarea from "../../Textarea/Textarea";
 import Button from "../../Button/Button";
 import Post from "./Post/Post";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer";
 
 
 const MyPosts = (props) => {
@@ -13,13 +14,14 @@ const MyPosts = (props) => {
   let postsElements = props.posts.map(post => <Post id={post.id} message={post.message} /> );
 
   let addPost = () => {
-    props.addPost();
-    props.updateNewPostText(" ");
+    let text = '';
+    props.dispatch(addPostActionCreator());
+    props.dispatch(updateNewPostTextActionCreator(text));
   };
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.updateNewPostText(text);
+    props.dispatch(updateNewPostTextActionCreator(text));
   }
 
   return (

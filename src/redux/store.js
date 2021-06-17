@@ -4,6 +4,8 @@ import  avatar_3 from './../img/avatar_3.jpg';
 import  avatar_4 from './../img/avatar_4.jpg';
 import  avatar_5 from './../img/avatar_5.jpg';
 import  avatar_6 from './../img/avatar_6.jpg';
+import profileReducer from "./profile-reducer";
+import dialogReducer from "./dialog-reducer";
 
 let store = {
   _state: {
@@ -41,31 +43,27 @@ let store = {
         {id: 3, message: 'How is your?'},
         {id: 4, message: 'How are you?'}
       ],
+      newMessageBody: '',
     }
   },
+
   getState () {
     return this._state;
   },
   _callSubscriber () {},
-  addPost () {
-    let newPost = {
-      id: 5,
-      message: this._state.profilesPage.newTextPost,
-      userId: 5
-    };
-    this._state.profilesPage.posts.push(newPost);
-    this._callSubscriber(this._state);
-  },
-  updateNewPostText (newText) {
-    this._state.profilesPage.newTextPost = newText;
-    this._callSubscriber(this._state);
-  },
+
   subscribe (observer) {
     this._callSubscriber = observer;
+  },
+
+  dispatch (action) {
+    this._state.profilesPage = profileReducer(this._state.profilesPage, action);
+    this._state.dialogsPage = dialogReducer(this._state.dialogsPage, action);
+    this._callSubscriber(this._state);
   }
 }
 
-window.store = store;
 
+window.store = store;
 
 export default store;
